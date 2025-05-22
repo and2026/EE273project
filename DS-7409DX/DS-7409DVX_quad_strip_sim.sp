@@ -4,16 +4,16 @@
 ************************************************************************* 
  .PARAM thick	= 0.6		* Trace thickness, mils -- 1/2 oz copper
  .PARAM width	= 4.0 		* Trace width, mils
- .PARAM gap	= 7.37		* Pair-to-pair air gap, mils
- .PARAM space	= 24.0 		* Trace pair air gap, mils
+ .PARAM gap	= 24		* Pair-to-pair air gap, mils
+ .PARAM space	= 7.37 		* Trace pair air gap, mils
  .PARAM etch	= 0.3		* Trace etch factor, mils
  .PARAM rrms	= 1.8u 		* RMS trace roughness, meters
  .PARAM core	= 3.9		* Core dielectric thickness, mils  (2x1035)
- .PARAM preg	= 4.9 		* Pre-preg dielectric thickness, mils  (2x1035)
- .PARAM dk_core	= 3.29 		* Core relative dielectric constant 
- .PARAM dk_preg	= 3.49 		* Pre-preg relative dielectric constant
- .PARAM df_core	= 0.0025	* Core dissipation factor
- .PARAM df_preg	= 0.0025        * Pre-preg dissipation factor
+ .PARAM preg	= 4.8 		* Pre-preg dielectric thickness, mils  (2x1035)
+ .PARAM dk_core	= 3.63 		* Core relative dielectric constant 
+ .PARAM dk_preg	= 3.66 		* Pre-preg relative dielectric constant
+ .PARAM df_core	= 0.006		* Core dissipation factor
+ .PARAM df_preg	= 0.005	        * Pre-preg dissipation factor
  .PARAM length	= 12.0		* Trace length, inches
  .PARAM Zo_diff	= 97		* Differential impedance, ohms
 ************************************************************************* 

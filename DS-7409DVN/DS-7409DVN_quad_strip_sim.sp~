@@ -9,17 +9,17 @@
  .PARAM etch	= 0.3		* Trace etch factor, mils
  .PARAM rrms	= 1.8u 		* RMS trace roughness, meters
  .PARAM core	= 3.9		* Core dielectric thickness, mils  (2x1035)
- .PARAM preg	= 4.9 		* Pre-preg dielectric thickness, mils  (2x1035)
+ .PARAM preg	= 4.7 		* Pre-preg dielectric thickness, mils  (2x1035)
  .PARAM dk_core	= 3.29 		* Core relative dielectric constant 
- .PARAM dk_preg	= 3.49 		* Pre-preg relative dielectric constant
- .PARAM df_core	= 0.0025	* Core dissipation factor
- .PARAM df_preg	= 0.0025        * Pre-preg dissipation factor
+ .PARAM dk_preg	= 3.29 		* Pre-preg relative dielectric constant
+ .PARAM df_core	= 0.002		* Core dissipation factor
+ .PARAM df_preg	= 0.002		* Pre-preg dissipation factor
  .PARAM length	= 12.0		* Trace length, inches
  .PARAM Zo_diff	= 97		* Differential impedance, ohms
 ************************************************************************* 
 
 * Vs 1 2 AC 2
-Vs 1 2 PULSE(0 1 1n 10p 10p 93.46p 6n)
+Vs 1 2 PULSE(0 1 1n 10p 10p 186.9p 6n)
  R1 1     in1  '0.5*Zo_diff'
  R2 2     in2  '0.5*Zo_diff'
  R3 in3   0    '0.5*Zo_diff'

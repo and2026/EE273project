@@ -1,0 +1,111 @@
+#!/usr/bin/wish
+#
+# Tcl/Tk script to display [quad_striplines] cross-sectional structure
+#
+# Copyright Synopsys Inc., 2010. 
+#
+
+# changing following mag factors to make different aspect ratio
+proc XP {x} { expr { 1.000000e+00 * $x } }
+proc YP {y} { expr { 1.000000e+00 * $y } }
+
+pack [canvas .fsStr -width [XP 700] -height [YP 307] ]
+proc X0 {} { XP 100 }
+proc Y0 {} { YP 207 }
+proc XE {} { XP 650 }
+proc getX {x} { expr {($x - [X0]) * 2.800000e+00/ [XP 1.0] } }
+proc getY {y} { expr {([Y0] - $y) * 2.800000e+00/ [YP 1.0] } }
+proc showXY {x y} {
+.fsStr create rect 20  10 180 30 -fill white
+.fsStr create text 100 20 -text "( [ getX $x ]um, [ getY $y ]um )" 
+}
+proc showMProp {s r t} {
+.fsStr create rect 20 [expr {[Y0]+70}] 680 [expr {[Y0]+90}] -fill white -outline white
+set ss  "conductivity=[expr $s]"
+if {$s < 0.0} then { set $ss  "conductivity=infinity"; }
+set rr  ", roughness=[expr $r]"
+set tt  ", thickness=[expr $t]"
+if {$t < 0.0} then { set tt ""; }
+.fsStr create text 20 [expr {[Y0]+80}] -text "$ss$rr$tt" -anchor w
+}
+proc eraseMProp {} {
+.fsStr create rect 20 [expr {[Y0]+70}] 680 [expr {[Y0]+90}] -fill white -outline white
+}
+proc showDProp {e l t} {
+set ee  "er=[expr $e]"
+set ll  ", losstangent=[expr $l]"
+set tt  ", thickness=[expr $t]"
+if {$t < 0.0} then { set tt ""; }
+.fsStr create rect 20 [expr {[Y0]+70}] 680 [expr {[Y0]+90}] -fill white -outline white
+.fsStr create text 20 [expr {[Y0]+80}] -text "$ee$ll$tt" -anchor w
+}
+proc eraseDProp {} {
+.fsStr create rect 20 [expr {[Y0]+70}] 680 [expr {[Y0]+90}] -fill white -outline white
+}
+set backgnd [.fsStr create rect 0 0 [XP 700] [YP 307] -fill white]
+.fsStr bind $backgnd <B1-Motion>  { showXY %x %y }
+bind . <Escape> {exit} 
+.fsStr create text [XP 650] 20 -text "esc to exit"
+.fsStr bind $backgnd <Enter> { showDProp 1.000000e+00 0.000000e+00 -1.000000e+00 }
+.fsStr bind $backgnd <Leave> { eraseDProp }
+#
+# layerstacks 
+#
+#layer from y=0.000000e+00 to y=1.524000e-05
+set cond_001 [.fsStr create rect  [XP 0] [YP 207] [XP 700] [YP 202] -outline #81f -fill #81f ]
+.fsStr bind $cond_001 <B1-Motion>  { showXY %x %y }
+.fsStr bind $cond_001 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_001 <Leave> { eraseMProp }
+#layer from y=1.524000e-05 to y=1.143000e-04
+set diel_001 [.fsStr create rect  [XP 0] [YP 202] [XP 700] [YP 166] -outline #aaa -fill #aaa ]
+.fsStr bind $diel_001 <B1-Motion>  { showXY %x %y }
+.fsStr bind $diel_001 <Enter> { showDProp 3.290000e+00 2.500000e-03 9.906000e-05 }
+.fsStr bind $diel_001 <Leave> { eraseDProp }
+#layer from y=1.143000e-04 to y=2.387600e-04
+set diel_002 [.fsStr create rect  [XP 0] [YP 166] [XP 700] [YP 122] -outline #ccc -fill #ccc ]
+.fsStr bind $diel_002 <B1-Motion>  { showXY %x %y }
+.fsStr bind $diel_002 <Enter> { showDProp 3.490000e+00 2.500000e-03 1.244600e-04 }
+.fsStr bind $diel_002 <Leave> { eraseDProp }
+#layer from y=2.387600e-04 to y=2.540000e-04
+set cond_002 [.fsStr create rect  [XP 0] [YP 122] [XP 700] [YP 116] -outline #81f -fill #81f ]
+.fsStr bind $cond_002 <B1-Motion>  { showXY %x %y }
+.fsStr bind $cond_002 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_002 <Leave> { eraseMProp }
+#
+# conductors 
+#
+# trapezoidal:  bottom=1.016000e-04 top=8.636000e-05 thickness=1.524000e-05
+# location:  x=0.000000e+00 y=1.143000e-04
+set cond_003 [.fsStr create poly [XP 100] [YP 166] [XP 136] [YP 166] [XP 134] [YP 161] [XP 102] [YP 161] -fill #81f -outline black ]
+.fsStr bind $cond_003 <B1-Motion>  {showXY %x %y}
+.fsStr bind $cond_003 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_003 <Leave> { eraseMProp }
+# trapezoidal:  bottom=1.016000e-04 top=8.636000e-05 thickness=1.524000e-05
+# location:  x=2.887980e-04 y=1.143000e-04
+set cond_004 [.fsStr create poly [XP 203] [YP 166] [XP 239] [YP 166] [XP 237] [YP 161] [XP 205] [YP 161] -fill #81f -outline black ]
+.fsStr bind $cond_004 <B1-Motion>  {showXY %x %y}
+.fsStr bind $cond_004 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_004 <Leave> { eraseMProp }
+# trapezoidal:  bottom=1.016000e-04 top=8.636000e-05 thickness=1.524000e-05
+# location:  x=9.999980e-04 y=1.143000e-04
+set cond_005 [.fsStr create poly [XP 457] [YP 166] [XP 493] [YP 166] [XP 491] [YP 161] [XP 459] [YP 161] -fill #81f -outline black ]
+.fsStr bind $cond_005 <B1-Motion>  {showXY %x %y}
+.fsStr bind $cond_005 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_005 <Leave> { eraseMProp }
+# trapezoidal:  bottom=1.016000e-04 top=8.636000e-05 thickness=1.524000e-05
+# location:  x=1.288796e-03 y=1.143000e-04
+set cond_006 [.fsStr create poly [XP 560] [YP 166] [XP 596] [YP 166] [XP 594] [YP 161] [XP 562] [YP 161] -fill #81f -outline black ]
+.fsStr bind $cond_006 <B1-Motion>  {showXY %x %y}
+.fsStr bind $cond_006 <Enter> { showMProp 5.760000e+07 1.800000e-06 1.524000e-05 }
+.fsStr bind $cond_006 <Leave> { eraseMProp }
+#
+# axis and title 
+#
+.fsStr create line [expr {[X0]/2}] [Y0] [XE] [Y0] -fill red
+.fsStr create line [X0] [expr {[X0]/2}] [X0] [expr {[Y0] + [X0]/2}] -fill red
+.fsStr create line [XE] [expr {[Y0] - 10}] [XE] [expr {[Y0] + 10}] -fill red
+.fsStr create line [expr {[X0] - 10}] [X0] [expr {[X0] + 10}] [X0] -fill red
+.fsStr create text [expr {[X0] - 14}] [expr {[Y0] + 20}] -text "0" -fill black -font {Helvetica 14}
+.fsStr create text [XE] [expr {[Y0] + 20}] -text "[ getX [XE] ]um" -fill black -font {Helvetica 14}
+.fsStr create text [expr {[X0] - 40}] [X0] -text "[ getY [X0] ]um" -fill black -font {Helvetica 14}
+.fsStr create text  [XP 350] [YP 80] -text "\[ quad_striplines \]" -font {Helvetica 14}

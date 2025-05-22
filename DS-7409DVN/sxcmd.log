@@ -1,0 +1,147 @@
+### Custom WaveView ADV log file, revision V-2023.12-4 (build Feb 07, ) ###
+### created at 17:53:24 on Tue May 20 2025 (Linux AMD64) ###
+### Host Name: iron-01   User ID:    PID: 3178999   ###
+wv_start_log
+# (0) running in waveview only mode
+# (0) HOME defined
+wv_select_window {Custom WaveView} 
+wv_move_window {Custom WaveView} {} 0 27
+wv_move_window {Custom WaveView} {} -5 27
+wv_press_tool_button {Custom WaveView} {} {OpenWaveform0} 
+wv_select_dialog {FileDialog} 
+wv_move_scrollbar {FileDialog} {} {FileList.HScrollBar} {119}
+wv_move_scrollbar {FileDialog} {} {FileList.HScrollBar} {227}
+wv_select_list_item {FileDialog} {} {FileList} {DS-7409DVN_quad_strip_sim.tr0} 8
+wv_press_button {FileDialog} {} {Ok} 
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)} {0} {+sep=@}
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)@toplevel(0)} {0} {+sep=@}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_press_tool_button {Custom WaveView} {} {OpenWaveformFile0} 
+wv_select_dialog {FileDialog} 
+wv_select_list_item {FileDialog} {} {FileList} {..} 1
+wv_dclick_list_item {FileDialog} {} {FileList} {..} 1
+wv_select_list_item {FileDialog} {} {FileList} {..} 1
+wv_select_list_item {FileDialog} {} {FileList} {DS-7409DV} 3
+wv_dclick_list_item {FileDialog} {} {FileList} {DS-7409DV} 3
+wv_select_list_item {FileDialog} {} {FileList} {DS-7409DV_quad_strip_sim.tr0} 6
+wv_press_button {FileDialog} {} {Ok} 
+wv_press_tool_button {Custom WaveView} {} {OpenWaveformFile0} 
+wv_select_dialog {FileDialog} 
+wv_move_window {FileDialog} {} 435 27
+wv_select_list_item {FileDialog} {} {FileList} {..} 1
+wv_select_list_item {FileDialog} {} {FileList} {..} 1
+wv_select_list_item {FileDialog} {} {FileList} {..} 1
+wv_dclick_list_item {FileDialog} {} {FileList} {..} 1
+wv_select_list_item {FileDialog} {} {FileList} {DS-7409DX} 5
+wv_dclick_list_item {FileDialog} {} {FileList} {DS-7409DX} 5
+wv_move_scrollbar {FileDialog} {} {FileList.HScrollBar} {137}
+wv_select_list_item {FileDialog} {} {FileList} {DS-7409DVX_quad_strip_sim.tr0} 8
+wv_press_button {FileDialog} {} {Ok} 
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)} {0} {+sep=@}
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)@toplevel(0)} {0} {+sep=@}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_select_waveview 1 {waveview 1}
+wv_waveview_context_menu WV1.PANEL2:1.LEGEND
+wv_select_waveview 1 {waveview 1}
+wv_select_menu_item {Custom WaveView} {waveview 1:1} {PanelPopMenu.Delete} 
+wv_press_button {Confirmation} {} {Ok} 
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_list_context_menu {Custom WaveView} {} {sigview} {v(out1)} 8 107 14
+wv_select_menu_item {Custom WaveView} {} {SigViewPopMenu.Plot Waveform to ....Append to Panel} 
+wv_select_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)} {0} {+sep=@}
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)@toplevel(0)} {0} {+sep=@}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out1)} 8
+wv_list_context_menu {Custom WaveView} {} {sigview} {v(out1)} 8 113 9
+wv_select_menu_item {Custom WaveView} {} {SigViewPopMenu.Plot Waveform to ....Append to Panel} 
+wv_press_tool_button {Custom WaveView} {} {WaveformMeasurementTool0} 
+wv_select_dialog {MeasurementTool} 
+wv_close_dialog {MeasurementTool} 
+wv_select_window {Custom WaveView} 
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL1:1.XAXIS1
+wv_drag_item_to WV1 342 28
+wv_zoom_x WV1.PANEL1:1 2.32611e-09 4.89168e-09
+wv_select_waveview 1 {waveview 1}
+wv_select_toolbar_item {Custom WaveView} {waveview 1:1} {Full Unzoom} 
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out4)} 11
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out4)} 11
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out3)} 10
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out3)} 10
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out2)} 9
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out2)} 9
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL1:1.LINE1
+wv_select_line WV1.PANEL1:1.LINE1
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.LEGEND.WIDTH
+wv_drag_item_to WV1 82 56
+wv_move_wv_item WV1.PANEL1:1.LEGEND.WIDTH 158
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.LEGEND.WIDTH
+wv_drag_item_to WV1 159 53
+wv_move_wv_item WV1.PANEL1:1.LEGEND.WIDTH 188
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:DS-7409DVN_quad_strip_sim.tr0(0)@toplevel(0)} {0} {+sep=@}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out2)} 9
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out2)} 9
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out3)} 10
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out3)} 10
+wv_select_list_item {Custom WaveView} {} {sigview} {v(out4)} 11
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(out4)} 11
+wv_select_list_item {Custom WaveView} {} {sigview} {v(vdiff)} 12
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(vdiff)} 12
+wv_select_window {Custom WaveView} 
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL2:1.LINE1
+wv_select_line WV1.PANEL2:1.LINE1
+wv_select_waveview 1 {waveview 1}
+wv_shift_select_panel WV1.PANEL8:1.LEGEND
+wv_release_wv_item WV1 125 323
+wv_select_waveview 1 {waveview 1}
+wv_waveview_context_menu WV1.PANEL7:1.LINE1
+wv_select_waveview 1 {waveview 1}
+wv_select_menu_item {Custom WaveView} {waveview 1:1} {PanelPopMenu.Delete} 
+wv_select_dialog {Confirmation} 
+wv_press_button {Confirmation} {} {Ok} 
+wv_select_waveview 1 {waveview 1}
+wv_select_toolbar_item {Custom WaveView} {waveview 1:1} {Vertical Cursor} 
+wv_press_key Left 846 464
+wv_press_key Left 846 464
+wv_press_key Left 846 464
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 3.55714e-09 0.00264156
+wv_select_panel WV1.PANEL1:1 3.55714e-09 0.00264156 btnup
+wv_select_window {Custom WaveView} 
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL1:1.LEGEND
+wv_select_panel WV1.PANEL1:1.LEGEND
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 4.05714e-09 0.120747
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 588 148
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 3.05714e-09 0.198041
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 518 23
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 8.14286e-10 0.159704
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 361 85
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 3.47143e-09 0.00944346
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 547 328
+wv_select_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)} {0} {+sep=@}
+wv_collapse_tree_item {Custom WaveView} {} {hierview} {D2:DS-7409DVX_quad_strip_sim.tr0(2)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)@toplevel(0)} {0} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D1:DS-7409DV_quad_strip_sim.tr0(1)} {0} {+sep=@}
+wv_tree_context_menu {Custom WaveView} {} {hierview} 120 37 {D1:DS-7409DV_quad_strip_sim.tr0(1)} {+sep=@}
+wv_select_menu_item {Custom WaveView} {} {FileViewPopMenu.Update WDF} 
+wv_select_dialog {Confirmation} 
+wv_press_button {Confirmation} {} {Ok} 
