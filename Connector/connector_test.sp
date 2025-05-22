@@ -1,0 +1,123 @@
+* Crosstalk Test of Xcede+ 4x8 Ortho Connector s24p Model *
+
+*************************************************************************
+*                                                                       *
+*			Parameter Definitions				*
+*                                                                       *
+*************************************************************************
+ .PARAM vstep	= 1			* Driver diff pp drive voltage, volts
+ .PARAM trise	= 25p			* Driver rise time, seconds
+ .PARAM tfall	= 25p			* Driver fall time, seconds
+
+ .PARAM rref	= 50			* Receiver input resistance, ohms
+
+ .PARAM simtime	= 3n			* Use/adjust
+ .PARAM intv	= 1p			* Reporting interval, seconds.
+
+*************************************************************************
+*                                                                       *
+*				Main Circuit				*
+*                                                                       *
+*************************************************************************
+ * Positive TDR Input *
+ V1p p      gnd  PULSE (0v vstep 0 trise trise 0.5 1)
+ Rsp p      inp  rref 
+ T1p inp 0 13 0 Z0=rref TD=0.5n
+ 
+ * Negative TDR Input *
+ V1n n    gnd   PULSE (vstep 0v 0 trise trise 0.5 1)
+ Rsn n    inn  rref 
+ T1n inn 0 15 0 Z0=rref TD=0.5n
+ 
+ * Positive TDT Output *
+ T2p 14    0 outp 0 Z0=rref TD=0.5n
+ Rtp outp 0 rref
+
+ * Negative TDT Output *
+ T2n 16    0 outn 0 Z0=rref TD=0.5n
+ Rtn outn 0 rref
+
+* Daughter Card Side Terminations *
+ R1    1 0  rref
+ R3    3 0  rref
+ R5    5 0  rref
+ R7    7 0  rref
+ R9    9 0  rref
+ R11  11 0  rref
+* R13  13 0  rref
+* R15  15 0  rref
+ R17  17 0  rref
+ R19  19 0  rref
+ R21  21 0  rref
+ R23  23 0  rref
+
+* Connector *
+ S1   1   2   3   4   5   6   7   8   9  10  11  12
++    13  14  15  16  17  18  19  20  21  22  23  24  MNAME=s_model
+
+* Backplane Side Terminations *
+ R2    2 0    rref
+ R4    4 0    rref
+ R6    6 0    rref
+ R8    8 0    rref
+ R10  10 0    rref
+ R12  12 0    rref
+ *R14  14 0    rref
+ *R16  16 0    rref
+ R18  18 0    rref
+ R20  20 0    rref
+ R22  22 0    rref
+ R24  24 0    rref
+
+* Differential Signal *
+ E1  rx_diff 0 (14,16) 1
+ Rx1 rx_diff 0 1G
+
+* Differential Crosstalk Sensing *
+
+ E2 fext_diff1 0 (4, 2) 1
+ E3 next_diff1 0 (1, 3) 1
+ 
+ E4  fext_diff2 0 (8, 6)   1
+ E5  next_diff2 0 (5, 7)   1
+
+ E6  fext_diff3 0 (12, 10) 1
+ E7  next_diff3 0 (9, 11) 1
+
+ *E6  fext_diff3 0 (16, 14) 1
+ *E7  next_diff3 0 (13, 15) 1
+
+ E8 fext_diff4 0 (20, 18) 1
+ E9 next_diff4 0 (17, 19) 1
+ 
+ E10 fext_diff5 0 (24, 22) 1
+ E11 next_diff5 0 (21, 23) 1
+ 
+
+ Rx2 fext_diff1 0 1G
+ Rx3 next_diff1 0 1G
+ Rx4 fext_diff2 0 1G
+ Rx5 next_diff2 0 1G
+ 
+ Rx6 fext_diff3 0 1G
+ Rx7 next_diff3 0 1G
+ Rx8 fext_diff4 0 1G
+ Rx9 next_diff4 0 1G
+ Rx10 fext_diff5 0 1G
+ Rx11 next_diff5 0 1G
+
+
+* Connector S-parameter Model *
+ .MODEL s_model S TSTONEFILE='Orthogonal_rev12_Full_Final.s24p'
+
+
+*************************************************************************
+*                                                                       *
+*		    Simulation Controls and Alters			*
+*                                                                       *
+*************************************************************************
+ .OPTION post=1 accurate
+ .PROBE TRAN  impedd=PAR('2*rref*V(inp,inn)/(V(p,n)-V(inp,inn))')
+ .TRAN intv simtime
+ .END
+

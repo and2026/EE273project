@@ -1,0 +1,54 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-3 linux64"
+* "format" "HSP"
+* "rundate" "16:46:44 05/19/2025 "
+* "netlist" "connector_test.sp "
+* "runtitle" "* crosstalk test of xcede+ 4x8 ortho connector s24p model *"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ 1 = 307.1555u       
++ 2 =-107.3550u       
++ 3 = 283.6815u       
++ 4 = -80.4180u       
++ 5 = 396.0200u       
++ 6 = 168.0865u       
++ 7 = 439.7840u       
++ 8 = 130.2965u       
++ 9 = 474.2580u       
++ 10 = -83.5980u       
++ 11 = 534.6650u       
++ 12 = -64.0735u       
++ 13 =   3.9383m       
++ 14 =-721.0650u       
++ 15 = 504.7287m       
++ 16 = 498.2485m       
++ 17 = 413.7920u       
++ 18 =-124.4090u       
++ 19 = 488.9625u       
++ 20 =  68.0615u       
++ 21 = 644.9850u       
++ 22 =-279.6100u       
++ 23 = 571.9400u       
++ 24 =-157.8045u       
++ fext_diff1 =  26.9370u       
++ fext_diff2 = -37.7900u       
++ fext_diff3 =  19.5245u       
++ fext_diff4 = 192.4705u       
++ fext_diff5 = 121.8055u       
++ inn = 504.7287m       
++ inp =   3.9383m       
++ n =   1.0000        
++ next_diff1 =  23.4740u       
++ next_diff2 = -43.7640u       
++ next_diff3 = -60.4070u       
++ next_diff4 = -75.1705u       
++ next_diff5 =  73.0450u       
++ outn = 498.2485m       
++ outp =-721.0650u       
++ p =   0.            
++ rx_diff =-498.9696m       
+***   END: Saved Operating Point ***                     

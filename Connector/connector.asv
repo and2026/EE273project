@@ -1,0 +1,15 @@
+
+
+s = readtable('outputs_9_11')
+
+time = table2array(s(3:end, 1));
+
+fext_diff = [table2array(s(3:end, 2)), table2array(s(3:end, 3)), table2array(s(3:end, 4)), table2array(s(3:end, 5)), table2array(s(3:end, 6));
+
+next_diff1 = table2array(s(3:end, 7));
+next_diff2 = table2array(s(3:end, 8));
+next_diff3 = table2array(s(3:end, 9));
+next_diff4 = table2array(s(3:end, 10));
+next_diff5 = table2array(s(3:end, 11));
+
+

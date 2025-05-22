@@ -1,0 +1,43 @@
+* "simulator" "HSPICE" 
+* "version" "K-2015.06-3 linux64"
+* "format" "HSP"
+* "rundate" "13:42:26 05/19/2025 "
+* "netlist" "xcede_4x8ortho_test.sp "
+* "runtitle" "* test of xcede+ 4x8 orthogonal connector s24p model *"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ 1 =   0.            
++ 2 =   0.            
++ 3 =   0.            
++ 4 =   0.            
++ 5 =   0.            
++ 6 =   0.            
++ 7 =   0.            
++ 8 =   0.            
++ 9 =   0.            
++ 10 =   0.            
++ 11 =   0.            
++ 12 =   0.            
++ 13 =   0.            
++ 14 =   0.            
++ 15 =   0.            
++ 16 =   0.            
++ 17 =   0.            
++ 18 =   0.            
++ 19 =   0.            
++ 20 =   0.            
++ 21 =   0.            
++ 22 =   0.            
++ 23 =   0.            
++ 24 =   0.            
++ inn =   0.            
++ inp =   0.            
++ n =   0.            
++ outn =   0.            
++ outp =   0.            
++ p =   0.            
+***   END: Saved Operating Point ***                     
