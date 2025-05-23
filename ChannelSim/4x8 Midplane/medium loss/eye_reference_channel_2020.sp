@@ -18,14 +18,14 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 5.35g            * CTLE zero frequency, Hz
+ .PARAM az1     = 2.00g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
 * Driver Pre-emphais *
- .PARAM pre1	= 0.00		* Driver pre-cursor pre-emphasis
- .PARAM post1	= 0.00		* Driver 1st post-cursor pre-emphasis
- .PARAM post2	= 0.00		* Driver 2nd post-cursor pre-emphasis
+ .PARAM pre1	= 0.0016		* Driver pre-cursor pre-emphasis
+ .PARAM post1	= 0.0051		* Driver 1st post-cursor pre-emphasis
+ .PARAM post2	= 0.0003		* Driver 2nd post-cursor pre-emphasis
 
 * Eye delay -- In awaves viewer, plot signal rx_diff against signal eye
 *              then adjust parameter edui to center the data eye.
