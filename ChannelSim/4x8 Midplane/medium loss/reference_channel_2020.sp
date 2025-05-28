@@ -13,8 +13,8 @@
 *************************************************************************
 *************************************************************************
 * Simulation Run Time *
- .PARAM simtime	= '60/bps'	* USE THIS RUNTIME FOR PULSE RESPONSE
-*.PARAM simtime	= '256/bps'	* USE THIS RUNTIME FOR EYE DIAGRAM
+* .PARAM simtime	= '60/bps'	* USE THIS RUNTIME FOR PULSE RESPONSE
+.PARAM simtime	= '256/bps'	* USE THIS RUNTIME FOR EYE DIAGRAM
 
 * CTLE Settings *
 ***set for 10.7Gbps***

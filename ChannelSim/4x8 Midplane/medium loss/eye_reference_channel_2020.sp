@@ -14,7 +14,7 @@
 *************************************************************************
 * Simulation Run Time *
 *.PARAM simtime	= '60/bps'	* USE THIS RUNTIME FOR PULSE RESPONSE
-.PARAM simtime	= '256/bps'	* USE THIS RUNTIME FOR EYE DIAGRAM
+.PARAM simtime	= '512/bps'	* USE THIS RUNTIME FOR EYE DIAGRAM
 
 * CTLE Settings *
 ***set for 10.7Gbps***
@@ -23,9 +23,9 @@
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
 * Driver Pre-emphais *
- .PARAM pre1	= 0.0016		* Driver pre-cursor pre-emphasis
- .PARAM post1	= 0.0051		* Driver 1st post-cursor pre-emphasis
- .PARAM post2	= 0.0003		* Driver 2nd post-cursor pre-emphasis
+ .PARAM pre1	= 0.07			* Driver pre-cursor pre-emphasis
+ .PARAM post1	= 0.0000		* Driver 1st post-cursor pre-emphasis
+ .PARAM post2	= 0.0000		* Driver 2nd post-cursor pre-emphasis
 
 * Eye delay -- In awaves viewer, plot signal rx_diff against signal eye
 *              then adjust parameter edui to center the data eye.
