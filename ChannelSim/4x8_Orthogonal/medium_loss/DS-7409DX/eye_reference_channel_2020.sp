@@ -18,13 +18,13 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 1.65g            * CTLE zero frequency, Hz
+ .PARAM az1     = 5.35g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
 * Driver Pre-emphais *
- .PARAM pre1	= 0.08		* Driver pre-cursor pre-emphasis
- .PARAM post1	= -0.01		* Driver 1st post-cursor pre-emphasis
+ .PARAM pre1	= 0.00		* Driver pre-cursor pre-emphasis
+ .PARAM post1	= 0.00		* Driver 1st post-cursor pre-emphasis
  .PARAM post2	= 0.00		* Driver 2nd post-cursor pre-emphasis
 
 * Eye delay -- In awaves viewer, plot signal rx_diff against signal eye
@@ -40,6 +40,7 @@
 
 * PRBS7 Signal Source *
 Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
+*Xs  inp inn  (bitpattern) dc0=0 dc1=1.250 baud='1/bps' latency=0 tr=trise
 
 * AC Signal Source *
 *Vs  in 0   AC 1
@@ -48,7 +49,7 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 *************************************************************************
 * Driver Volatage and Timing *
 ***set for 10.7Gbps***
- .PARAM vd	= 1000m		* Driver peak to peak diff drive, volts
+ .PARAM vd	= 1250m		* Driver peak to peak diff drive, volts
  .PARAM trise	= 30p		* Driver rise time, seconds
  .PARAM tfall	= 30p		* Driver fall time, seconds
  .PARAM bps	= 10.7g		* Bit rate, bits per second
@@ -84,10 +85,15 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
  Rr2 repp 0    50
  Rr3 rep2 repn 50
  Rr4 repn 0    50
- Er1 fwd  0 (repp, repn) 1	* Compute V forward
- Er2 inpt 0 (jp1,  jn1)  1	* Computes channel input voltage
- Er3 s11  0 (inpt, fwd)  1	* Computes s11
- Er4 s21  0 (jp14, jn14) 1	* Computes s21
+ *Er1 fwd  0 (repp, repn) 1	* Compute V forward
+ *Er2 inpt 0 (jp1,  jn1)  1	* Computes channel input voltage
+ *Er3 s11  0 (inpt, fwd)  1	* Computes s11
+ *Er4 s21  0 (jp14, jn14) 1	* Computes s21
+
+ Er1 fwd  0 (repp, repn) 1.250	* Compute V forward
+ Er2 inpt 0 (jp1,  jn1)  1.250	* Computes channel input voltage
+ Er3 s11  0 (inpt, fwd)  1.250	* Computes s11
+ Er4 s21  0 (jp14, jn14) 1.250	* Computes s21
 
 *************************************************************************
 *************************************************************************
@@ -159,7 +165,8 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
  Xctle jrp jrn outp outn  (rx_eq_diff) az1=az1 ap1=ap1 ap2=ap2
 
 * Differential Receive Voltage *
- Ex  rx_diff 0  (outp,outn) 1
+ * Ex  rx_diff 0  (outp,outn) 1
+ Ex  rx_diff 0  (outp,outn) 1.250
  Rx  rx_diff 0  1G
 
 * Eye Diagram Horizontal Source *
@@ -276,20 +283,19 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 *  //// Bottom Ground Plane ///////////
 *  ------------------------------------ Z = 0
 
-* L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
 .MODEL diff_stripline W MODELTYPE=RLGC, N=2
-+ Lo = 3.189562e-07
-+      2.141288e-08 3.189562e-07
-+ Co = 1.279902e-10
-+      -8.582799e-12 1.279902e-10
-+ Ro = 9.966584e+00
-+      0.000000e+00 9.966584e+00
++ Lo = 3.102009e-07
++      1.094587e-08 3.102009e-07
++ Co = 1.261211e-10
++      -4.387472e-12 1.261211e-10
++ Ro = 1.121241e+01
++      0.000000e+00 1.121241e+01
 + Go = 0.000000e+00
 +      -0.000000e+00 0.000000e+00
-+ Rs = 2.241980e-03
-+      1.120339e-04 2.241980e-03
-+ Gd = 4.020931e-12
-+      -2.696366e-13 4.020931e-12
++ Rs = 2.448602e-03
++      9.122823e-05 2.448602e-03
++ Gd = 3.169768e-12
++      -1.102692e-13 3.169768e-12
 
 
 

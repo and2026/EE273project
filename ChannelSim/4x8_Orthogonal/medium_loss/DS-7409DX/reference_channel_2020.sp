@@ -18,14 +18,18 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 1.65g            * CTLE zero frequency, Hz
+* .PARAM az1     = 1.65g            * CTLE zero frequency, Hz
+ .PARAM az1     = 1.60g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
 * Driver Pre-emphais *
- .PARAM pre1	= 0.10		* Driver pre-cursor pre-emphasis
- .PARAM post1	= -0.01		* Driver 1st post-cursor pre-emphasis
- .PARAM post2	= 0.00		* Driver 2nd post-cursor pre-emphasis
+* .PARAM pre1	= 0.10		* Driver pre-cursor pre-emphasis
+* .PARAM post1	= -0.01		* Driver 1st post-cursor pre-emphasis
+* .PARAM post2	= 0.00		* Driver 2nd post-cursor pre-emphasis
+ .PARAM pre1	= 0.07		* Driver pre-cursor pre-emphasis
+ .PARAM post1	= 0.02		* Driver 1st post-cursor pre-emphasis
+ .PARAM post2	= -0.02		* Driver 2nd post-cursor pre-emphasis 
 
 * Eye delay -- In awaves viewer, plot signal rx_diff against signal eye
 *              then adjust parameter edui to center the data eye.
@@ -36,7 +40,7 @@
 				* Positive moves the eye left.
 
 * Single Pulse Signal Source *
-Vs  inp 0    PULSE (1 0 0 trise tfall '(1/bps)-trise' simtime)
+Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
 
 * PRBS7 Signal Source *
 *Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
@@ -279,18 +283,18 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 * L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
 
 .MODEL diff_stripline W MODELTYPE=RLGC, N=2
-+ Lo = 3.189562e-07
-+      2.141288e-08 3.189562e-07
-+ Co = 1.279902e-10
-+      -8.582799e-12 1.279902e-10
-+ Ro = 9.966584e+00
-+      0.000000e+00 9.966584e+00
++ Lo = 3.102009e-07
++      1.094587e-08 3.102009e-07
++ Co = 1.261211e-10
++      -4.387472e-12 1.261211e-10
++ Ro = 1.121241e+01
++      0.000000e+00 1.121241e+01
 + Go = 0.000000e+00
 +      -0.000000e+00 0.000000e+00
-+ Rs = 2.241980e-03
-+      1.120339e-04 2.241980e-03
-+ Gd = 4.020931e-12
-+      -2.696366e-13 4.020931e-12
++ Rs = 2.448602e-03
++      9.122823e-05 2.448602e-03
++ Gd = 3.169768e-12
++      -1.102692e-13 3.169768e-12
 
 
 *************************************************************************
