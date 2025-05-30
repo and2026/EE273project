@@ -1,83 +1,74 @@
 ### Custom WaveView ADV log file, revision V-2023.12-4 (build Feb 07, ) ###
-### created at 11:02:08 on Fri May 30 2025 (Linux AMD64) ###
-### Host Name: iron-01   User ID:    PID: 2962093   ###
+### created at 12:33:51 on Fri May 30 2025 (Linux AMD64) ###
+### Host Name: iron-04   User ID:    PID: 3317198   ###
 wv_start_log
 # (0) running in waveview only mode
 # (0) HOME defined
 wv_select_window {Custom WaveView} 
-wv_move_window {Custom WaveView} {} 0 27
-wv_move_window {Custom WaveView} {} -5 27
+wv_move_window {Custom WaveView} {} 0 261
+wv_move_window {Custom WaveView} {} 50 27
 wv_press_tool_button {Custom WaveView} {} {OpenWaveform0} 
 wv_select_dialog {FileDialog} 
-wv_move_scrollbar {FileDialog} {} {FileList.HScrollBar} {248}
-wv_select_list_item {FileDialog} {} {FileList} {eye_reference_channel_2020.tr0} 8
-wv_press_button {FileDialog} {} {Ok} 
-wv_select_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020.tr0(0)} {0} {+sep=@}
-wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020.tr0(0)} {+sep=@}
-wv_select_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020.tr0(0)@toplevel(0)} {0} {+sep=@}
-wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020.tr0(0)@toplevel(0)} {+sep=@}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {4}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {8}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {31}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {45}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {54}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {74}
+wv_move_scrollbar {FileDialog} {} {FileList.HScrollBar} {455}
+wv_select_list_item {FileDialog} {} {FileList} {reference_channel_2020.tr0} 16
+wv_dclick_list_item {FileDialog} {} {FileList} {reference_channel_2020.tr0} 16
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:reference_channel_2020.tr0(0)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:reference_channel_2020.tr0(0)@toplevel(0)} {0} {+sep=@}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {10}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {27}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {35}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {52}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {60}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {72}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {80}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {91}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {95}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {101}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {107}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {116}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {87}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {89}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {97}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {99}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {105}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {109}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {114}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {120}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {122}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {128}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {138}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {147}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {155}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {157}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {124}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {107}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {87}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {78}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {72}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {66}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {64}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {62}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {60}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {50}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {39}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {17}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {0}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(in)} 5
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(in)} 5
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {2}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {8}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {19}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {25}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {37}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {50}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {66}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {76}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {93}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {114}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {124}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {132}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {136}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {144}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {153}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {163}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {167}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {169}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {171}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {173}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {175}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {177}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {180}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {182}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {184}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {186}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {188}
-wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {190}
 wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {194}
 wv_select_list_item {Custom WaveView} {} {sigview} {v(rx_diff)} 25
 wv_dclick_list_item {Custom WaveView} {} {sigview} {v(rx_diff)} 25
-wv_set_confirm_flag 1
-wv_press_tool_button {Custom WaveView} {} {NewEyeDiagPanel0} 
-wv_select_window {Custom WaveView} 
-wv_select_list_item {Custom WaveView} {} {sigview} {v(rx_diff)} 25
-wv_dclick_list_item {Custom WaveView} {} {sigview} {v(rx_diff)} 25
-wv_select_waveview 2 {waveview 2}
-wv_waveview_context_menu WV2.PANEL1:1 5.05279e-11 -0.00291978
-wv_select_waveview 2 {waveview 2}
-wv_select_menu_item {Custom WaveView} {waveview 2:2} {PanelPopMenu.Configure Eye} 
-wv_set_radion {EyeDiagramSettings} {} {UserFrequency} 
-wv_set_text {EyeDiagramSettings} {} {FreqValue} " 10.7E+09"
-wv_press_button {EyeDiagramSettings} {} {Apply} 
-wv_close_dialog {EyeDiagramSettings} 
-wv_select_window {Custom WaveView} 
-wv_select_waveview 2 {waveview 2}
-wv_select_wv_item WV2.PANEL1:1.DELAY 134 384
-wv_release_wv_item WV2 134 384
-wv_release_wv_item WV2 134 384
-wv_select_waveview 2 {waveview 2}
-wv_select_wv_item WV2.PANEL1:1.DELAY 134 384
-wv_release_wv_item WV2 134 384
-wv_release_wv_item WV2 134 384
-wv_select_waveview 2 {waveview 2}
-wv_select_wv_item WV2.PANEL1:1.DELAY 134 384
-wv_release_wv_item WV2 134 384
-wv_select_waveview 2 {waveview 2}
-wv_select_wv_item WV2.PANEL1:1.DELAY 134 384
-wv_release_wv_item WV2 134 384
-wv_select_waveview 2 {waveview 2}
-wv_select_wv_item WV2.PANEL1:1.DELAY 562 383
-wv_release_wv_item WV2 562 383
-wv_release_wv_item WV2 562 383
+wv_close_window {Custom WaveView} 
+wv_select_dialog {Confirmation} 
+wv_move_window {Confirmation} {} 621 252
+#wv_press_button {Confirmation} {} {Ok} 

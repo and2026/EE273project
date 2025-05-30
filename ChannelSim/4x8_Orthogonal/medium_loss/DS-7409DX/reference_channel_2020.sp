@@ -40,10 +40,10 @@
 				* Positive moves the eye left.
 
 * Single Pulse Signal Source *
-Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
+*Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
 
 * PRBS7 Signal Source *
-*Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
+Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * AC Signal Source *
 *Vs  in 0   AC 1
@@ -201,16 +201,16 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 *    T1  inp ref outp ref Z0=50 TD=150p					*
 *    T2  inn ref outn ref Z0=50 TD=150p					*
 * Midplane Side Terminations *
- *R1    1 0  50
- *R3    3 0  50
+ R1    1 0  50
+ R3    3 0  50
  R5    5 0  50
  R7    7 0  50
  R9    9 0  50
  R11  11 0  50
  R13  13 0  50
  R15  15 0  50
- R17  17 0  50
- R19  19 0  50
+* R17  17 0  50
+* R19  19 0  50
  R21  21 0  50
  R23  23 0  50
  R25  25 0  50
@@ -219,22 +219,22 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
  R31  31 0  50
 
 * Connector *
- S1 inp outp inn outn   5   6   7   8   9   10   11   12
-+    13   14  15   16  17  18  19  20  21   22   23   24   MNAME=s_model
+ S1  1   2   3   4   5   6   7   8   9   10   11   12
++    13   14   15   16  inp  outp  inn  outn  21   22   23   24   MNAME=s_model
  *S1  inp outp inn outn   5   6   7   8   9   10   11   12   13   14   15   16
 *+     17   18  19   20  21  22  23  24  25   26   27   28   29   30   31   32  MNAME=s_model
 
 * Daughter Card Side Terminations *
-*R2    2 0  50
-*R4    4 0  50
+ R2    2 0  50
+ R4    4 0  50
  R6    6 0  50
  R8    8 0  50
  R10  10 0  50
  R12  12 0  50
  R14  14 0  50
  R16  16 0  50
- R18  18 0  50
- R20  20 0  50
+ *R18  18 0  50
+ *R20  20 0  50
  R22  22 0  50
  R24  24 0  50
  R26  26 0  50
@@ -262,9 +262,9 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 
 
  .SUBCKT (diff_stripline) inp inn outp outn length=1 *inch
-     W1 inp inn 0 outp outn 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
- *   W1 inp 0 outp 0 RLGCMODEL=stripline6_fr4 N=1 l='length*0.0254' delayopt=3
- *   W2 inn 0 outn 0 RLGCMODEL=stripline6_fr4 N=1 l='length*0.0254' delayopt=3
+    W1 inp inn 0 outp outn 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
+   * W2 9 11 0 10 12 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
+   * W3 21 23 0 22 24 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
  .ENDS (diff_stripline)
 
 
