@@ -18,7 +18,7 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 5.35g            * CTLE zero frequency, Hz
+ .PARAM az1     = 1.91g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
@@ -56,9 +56,9 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * PCB Line Lengths *
 ***set for orthogonal midplane***
- .PARAM len1	= 9		* Line segment 1 length, inches
- .PARAM len2	= 0.25	* Line segment 2 length, inches
- .PARAM len3	= 4		* Line segment 3 length, inches
+ .PARAM len1	= 5.65		* Line segment 1 length, inches
+ .PARAM len2	= 2.98	* Line segment 2 length, inches
+ .PARAM len3	= 5.66		* Line segment 3 length, inches
  .PARAM len4	= 1		* Line segment 4 length, inches
 
 * Package Parameters *
@@ -284,21 +284,18 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 *  ------------------------------------ Z = 0
 
 .MODEL diff_stripline W MODELTYPE=RLGC, N=2
-+ Lo = 3.102009e-07
-+      1.094587e-08 3.102009e-07
-+ Co = 1.261211e-10
-+      -4.387472e-12 1.261211e-10
++ Lo = 3.365490e-07
++      2.874749e-08 3.365490e-07
++ Co = 1.189722e-10
++      -1.015100e-11 1.189722e-10
 + Ro = 1.121241e+01
 +      0.000000e+00 1.121241e+01
 + Go = 0.000000e+00
 +      -0.000000e+00 0.000000e+00
-+ Rs = 2.448602e-03
-+      9.122823e-05 2.448602e-03
-+ Gd = 3.169768e-12
-+      -1.102692e-13 3.169768e-12
-
-
-
++ Rs = 2.409170e-03
++      1.390733e-04 2.409170e-03
++ Gd = 2.990097e-12
++      -2.551223e-13 2.990097e-12
 *************************************************************************
 *************************************************************************
 

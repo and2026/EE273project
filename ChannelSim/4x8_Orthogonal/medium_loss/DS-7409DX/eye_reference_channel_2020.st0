@@ -3,14 +3,14 @@
  lic:
  lic: FLEXlm: v11.2.1
  lic: USER:   aemorgan             HOSTNAME: iron-01
- lic: HOSTID: "eec706e3e073"       PID:      2910956
+ lic: HOSTID: "eec706e3e073"       PID:      3874025
  lic: Using FLEXlm license file:
  lic: 27000@cadlic0.stanford.edu
  lic: Checkout 1 hspice
  lic: License/Maintenance for hspice will expire on 06-nov-2026/2024.09
- lic: 1(in_use)/200(total) FLOATING license(s) on SERVER 27000@cadlic0.stanford.edu
+ lic: 2(in_use)/200(total) FLOATING license(s) on SERVER 27000@cadlic0.stanford.edu
  lic:
- init: begin read circuit files,  cpu clock=  1.60E-01
+ init: begin read circuit files,  cpu clock=  1.50E-01
        option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/ad
        option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/ad
        option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/be
@@ -41,25 +41,25 @@
        option accurate
  init: end read circuit files,  cpu clock=  1.60E-01 peak memory=       186 mb
  init: begin check errors,  cpu clock=  1.60E-01
- init: end check errors,  cpu clock=  7.60E-01 peak memory=       230 mb
- init: begin setup matrix, pivot=     0 cpu clock=  7.60E-01
-       establish matrix -- done,  cpu clock=  7.60E-01 peak memory=       230 mb
-       re-order matrix -- done,  cpu clock=  7.60E-01 peak memory=       230 mb
- init: end setup matrix,  cpu clock=  7.60E-01 peak memory=       230 mb
- dcop: begin dcop,  cpu clock=  7.60E-01
- dcop: end dcop,  cpu clock=  7.60E-01 peak memory=       230 mb  tot_iter=       4
+ init: end check errors,  cpu clock=  7.80E-01 peak memory=       230 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  7.80E-01
+       establish matrix -- done,  cpu clock=  7.80E-01 peak memory=       230 mb
+       re-order matrix -- done,  cpu clock=  7.80E-01 peak memory=       230 mb
+ init: end setup matrix,  cpu clock=  7.80E-01 peak memory=       230 mb
+ dcop: begin dcop,  cpu clock=  7.80E-01
+ dcop: end dcop,  cpu clock=  7.80E-01 peak memory=       230 mb  tot_iter=       4
  output: eye_reference_channel_2020.tr0
- sweep: tran tran0    begin, stop_t=  4.79E-08 #sweeps=9571 cpu clock=  7.60E-01
- tran: time= 4.7874E-09 tot_iter=    9209 conv_iter=    4486 cpu clock= 3.89E+01
- tran: time= 9.5721E-09 tot_iter=   19621 conv_iter=    9572 cpu clock= 8.75E+01
- tran: time= 1.4356E-08 tot_iter=   28101 conv_iter=   13695 cpu clock= 1.30E+02
- tran: time= 1.9144E-08 tot_iter=   38382 conv_iter=   18719 cpu clock= 1.86E+02
- tran: time= 2.3925E-08 tot_iter=   48173 conv_iter=   23509 cpu clock= 2.42E+02
- tran: time= 2.8715E-08 tot_iter=   57793 conv_iter=   28210 cpu clock= 3.02E+02
- tran: time= 3.3496E-08 tot_iter=   67876 conv_iter=   33106 cpu clock= 3.71E+02
- tran: time= 3.8281E-08 tot_iter=   76619 conv_iter=   37360 cpu clock= 4.33E+02
- tran: time= 4.3067E-08 tot_iter=   86907 conv_iter=   42372 cpu clock= 5.11E+02
- tran: time= 4.7850E-08 tot_iter=   96210 conv_iter=   46882 cpu clock= 5.85E+02
- sweep: tran tran0    end,  cpu clock=  5.85E+02 peak memory=       347 mb
+ sweep: tran tran0    begin, stop_t=  4.79E-08 #sweeps=9571 cpu clock=  7.80E-01
+ tran: time= 4.7875E-09 tot_iter=    9338 conv_iter=    4545 cpu clock= 3.69E+01
+ tran: time= 9.5707E-09 tot_iter=   19911 conv_iter=    9709 cpu clock= 8.15E+01
+ tran: time= 1.4356E-08 tot_iter=   28873 conv_iter=   14077 cpu clock= 1.22E+02
+ tran: time= 1.9141E-08 tot_iter=   39132 conv_iter=   19069 cpu clock= 1.74E+02
+ tran: time= 2.3925E-08 tot_iter=   48999 conv_iter=   23887 cpu clock= 2.30E+02
+ tran: time= 2.8714E-08 tot_iter=   58635 conv_iter=   28596 cpu clock= 2.87E+02
+ tran: time= 3.3496E-08 tot_iter=   69078 conv_iter=   33686 cpu clock= 3.55E+02
+ tran: time= 3.8282E-08 tot_iter=   77864 conv_iter=   37970 cpu clock= 4.13E+02
+ tran: time= 4.3066E-08 tot_iter=   88147 conv_iter=   42984 cpu clock= 4.87E+02
+ tran: time= 4.7850E-08 tot_iter=   97765 conv_iter=   47674 cpu clock= 5.60E+02
+ sweep: tran tran0    end,  cpu clock=  5.60E+02 peak memory=       347 mb
 >info:         ***** hspice job concluded
  lic: Release hspice token(s)
