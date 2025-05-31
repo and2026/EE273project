@@ -59,10 +59,10 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * PCB Line Lengths *
 ***set for orthogonal midplane***
- .PARAM len1	= 9	**min 0.65, max 5.69*** Line segment 1 length, inches
- .PARAM len2	= 0.25 	**min 2.98, max 2.98*** Line segment 2 length, inches
- .PARAM len3	= 4 	**min 1.17, max 5.66*** Line segment 3 length, inches
- .PARAM len4	= 1	**min 1, max 1**      * Line segment 4 length, inches
+ .PARAM len1	= 9		* Line segment 1 length, inches
+ .PARAM len2	= 0.25	* Line segment 2 length, inches
+ .PARAM len3	= 4		* Line segment 3 length, inches
+ .PARAM len4	= 1		* Line segment 4 length, inches
 
 * Package Parameters *
  .PARAM GENpkgZ = 47.5		* Typ GEN package trace impedance, ohms
@@ -108,11 +108,23 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 * Daughter Card 1 Interconnect *
  Xpp1    ppad  jp1   (gen_pkg)				* Driver package model
  Xpn1    npad  jn1   (gen_pkg)				* Driver package model
+
+ Rqp    0   rq   0    					*Termination resistor to gnd (set at 0 for now)
+ Rqn    0   rn   0 					*Termination Resistor
+ Xp3p1   rqp q3p1 (gen_pkg) 	   			*through driver
+ Xp4n1   rqn q4n1 (gen_pkg)				*through driver
+ 
+
  Xvn1    jn1   jn2   (via)				* Package via
  Xvp1    jp1   jp2   (via)				* Package via
- Xl1     jp2   jn2   jp3  jn3  (diff_stripline)	length=len1  * Line seg 1
+ Xv3p1   q3p1 q3p2 (via)				* Package via
+ Xc4n1   q4n1 q4n2 (via)				* Package via
+Xl1    jp2   jn2 q3p2 q4n2   jp3  jn3  q3p3 q4n3 (quad_stripline)	length=len1  * Line seg 1
+ 
  Xvp2    jp3   jp4   (via)				* Daughter card via
  Xvn2    jn3   jn4   (via)				* Daughter card via
+ Xv3p2   q3p3  q3p4  (via) 				* Daughter card via
+ Xv4n2   q4n3  q4n4  (via)				* Daughter card via
 
 *************************************************************************
 *************************************************************************
@@ -122,23 +134,15 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 *	    COMMENT OUT THE UNUSED CONFIGURATIONS			*
 *                                                                       *
 *************************************************************************
-* Backplane Interconnect *
-*Xk1  0  jp4   jn4   jp5  jn5  (conn)			* Backplane connector
-*Xvp3    jp5   jp6   (mvia)				* Backplane via
-*Xvn3    jn5   jn6   (mvia)				* Backplane via
-*Xl2     jp6   jn6   jp7  jn7  (diff_stripline)	length=len2  * Line seg 2
-*Xvp4    jp7   jp8   (mvia) 				* Backplane via
-*Xvn4    jn7   jn8   (mvia) 				* Backplane via
-*Xk2  0  jp9   jn9   jp8  jn8  (conn)			* Backplane connector
 
 * Orthogonal Midplane Interconnect *
-Xk1  0  jp4   jn4   jp5  jn5  (conn)		    * Ortho connector stack
+Xk1  0  jp4   jn4 q3p4 q4n4 jp5  jn5  q3p5 q4n5 (conn)		    * Ortho connector stack
 Tmp1    jp5 0 jp8 0 Z0=50 TD='len2*170p'		    * Through-midplane via
 Tmp2    jn5 0 jn8 0 Z0=50 TD='len2*170p'		    * Through-midplane via
-Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
- 
-* Xk1  0  jp4   jn4   jp9  jn9  (conn)		    * Single connector stack to 
-                                                       * demonstrate continuity
+Tmp3    q3p5 0 q3p8 0 Z0=50 TD='len2*170p'	    	    * Through-midplane via
+Tmp4    q4n5 0 q4n8 0 Z0=50 TD='len2*170p'		    * Through-midplane via
+Xk2  0  jp9   jn9 q3p9 q4n9  jp8  jn8 q3p8 q4n8  (conn)		    * Ortho connector stack
+
 
 *************************************************************************
 *************************************************************************
@@ -146,14 +150,32 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 * Daughter Card 2 Interconnect *
  Xvp5    jp9   jp10  (via)				* Daughter card via
  Xvn5    jn9   jn10  (via)				* Daughter card via
- Xl3     jp10  jn10  jp11 jn11 (diff_stripline)	length=len3  * Line seg 3
+ Xv3p5    q3p9   q3p10  (via)				* Daughter card via
+ Xv4n5    q4n9   q4n10  (via)				* Daughter card via
+
+ Xl3     jp10  jn10 q3p10 q4n10  jp11 jn11 q3p11 q4n11 (quad_stripline)	length=len3  * Line seg 3
  Xvp6    jp11  jp12  (via) 		Cvia=1.4p	* DC blocking cap vias
  Xvn6    jn11  jn12  (via) 		Cvia=1.4p	* DC blocking cap vias
- Xl4     jp12  jn12  jp13 jn13 (diff_stripline)	length=len4  * Line seg 4
+ Xv3p6    jp11  jp12  (via) 		Cvia=1.4p	* DC blocking cap vias
+ Xv4n6    jn11  jn12  (via) 		Cvia=1.4p	* DC blocking cap vias
+ Xl4     jp12  jn12 q3p12 q4n12 jp13 jn13 q3p13 q4n13 (quad_stripline)	length=len4  * Line seg 4
+
+
  Xvp7    jp13  jp14  (via)				* Package via
  Xvn7    jn13  jn14  (via)				* Package via
  Xpp2    jp14  jrp   (gen_pkg)				* Recvr package model
  Xpn2    jn14  jrn   (gen_pkg)				* Recvr package model
+
+
+ Xv3p7    q3p13  q3p14  (via)				* Package via
+ Xv4n7    q4n13  q4n14  (via)				* Package via
+ Xp3p2    q3p14  q3rp   (gen_pkg)				* Recvr package model
+ Xp4n2    q4n14  q4rn   (gen_pkg)				* Recvr package model
+
+*Terminate other diff pair line
+R3pterm q3rp 0 rterm
+R4nterm q4rn 0 rterm
+
 
 * Behavioral Receiver *
  Rrp1  jrp 0  rterm
@@ -197,7 +219,7 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 *                                                                       *
 *************************************************************************
 *************************************************************************
- .SUBCKT (conn) ref inp inn outp outn					*
+ .SUBCKT (conn) ref inp inn in3p in4n outp outn	out3p out4n				*
 *    T1  inp ref outp ref Z0=50 TD=150p					*
 *    T2  inn ref outn ref Z0=50 TD=150p					*
 * Midplane Side Terminations *
@@ -211,8 +233,8 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
  R15  15 0  50
 * R17  17 0  50
 * R19  19 0  50
- R21  21 0  50
- R23  23 0  50
+* R21  21 0  50
+* R23  23 0  50
  R25  25 0  50
  R27  27 0  50
  R29  29 0  50
@@ -220,9 +242,8 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 
 * Connector *
  S1  1   2   3   4   5   6   7   8   9   10   11   12
-+    13   14   15   16  inp  outp  inn  outn  21   22   23   24   MNAME=s_model
++    13   14   15   16  inp  outp  inn  outn  in3p   out3p   in4n   out4n   MNAME=s_model
  *S1  inp outp inn outn   5   6   7   8   9   10   11   12   13   14   15   16
-*+     17   18  19   20  21  22  23  24  25   26   27   28   29   30   31   32  MNAME=s_model
 
 * Daughter Card Side Terminations *
  R2    2 0  50
@@ -235,16 +256,15 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
  R16  16 0  50
  *R18  18 0  50
  *R20  20 0  50
- R22  22 0  50
- R24  24 0  50
+* R22  22 0  50
+* R24  24 0  50
  R26  26 0  50
  R28  28 0  50
  R30  30 0  50
  R32  32 0  50
 
 * Connector S-parameter Model *
-***4x8 midplane***
-* .MODEL s_model S TSTONEFILE='./XCedePlus_4pr_97ohm_1p85mm_With_Extra_GND_2mm_Sig_3mm_GND_Wipe.s32p'
+***4x8 Orthogonal ***
 .MODEL s_model S TSTONEFILE='Orthogonal_rev12_Full_Final.s24p'
 
  .ENDS (conn)								*
@@ -261,12 +281,14 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 *************************************************************************
 
 
- .SUBCKT (diff_stripline) inp inn outp outn length=1 *inch
-    W1 inp inn 0 outp outn 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
-   * W2 9 11 0 10 12 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
+ .SUBCKT (diff_stripline) inp inn  outp outn length=1 *inch
+   * W1 inp inn 0 outp outn 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
    * W3 21 23 0 22 24 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
  .ENDS (diff_stripline)
 
+ .SUBCKT (quad_stripline) inp inn in3p in4n outp outn out3p out4n length=1 *inch
+    W1 inp inn in3p in4n 0 outp outn out3p out4n 0 RLGCMODEL=quad_striplines N=4 l='length*0.0254' delayopt=3
+ .ENDS (quad_stripline)
 
 *SYSTEM_NAME : diff_stripline
 *
@@ -295,6 +317,53 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 +      9.122823e-05 2.448602e-03
 + Gd = 3.169768e-12
 +      -1.102692e-13 3.169768e-12
+
+
+
+*SYSTEM_NAME : quad_striplines
+*
+*  ------------------------------------ Z = 2.641600e-04
+*  //// Top Ground Plane //////////////
+*  ------------------------------------ Z = 2.489200e-04
+*       diel_2   H = 1.346200e-04
+*  ------------------------------------ Z = 1.143000e-04
+*       diel_1   H = 9.906000e-05
+*  ------------------------------------ Z = 1.524000e-05
+*  //// Bottom Ground Plane ///////////
+*  ------------------------------------ Z = 0
+
+* L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
+
+.MODEL quad_stripline W MODELTYPE=RLGC, N=4
++ Lo = 2.595832e-07
++      5.320991e-09 2.595828e-07
++      5.138418e-12 2.458898e-10 2.595828e-07
++      1.073550e-13 5.138418e-12 5.320991e-09 2.595832e-07
++ Co = 1.179266e-10
++      -2.391193e-12 1.179269e-10
++      0.000000e+00 -1.094425e-13 1.179269e-10
++      0.000000e+00 0.000000e+00 -2.391193e-12 1.179266e-10
++ Ro = 7.868356e+00
++      0.000000e+00 7.868356e+00
++      0.000000e+00 0.000000e+00 7.868356e+00
++      0.000000e+00 0.000000e+00 0.000000e+00 7.868356e+00
++ Go = 0.000000e+00
++      -0.000000e+00 0.000000e+00
++      0.000000e+00 -0.000000e+00 0.000000e+00
++      0.000000e+00 0.000000e+00 -0.000000e+00 0.000000e+00
++ Rs = 1.958637e-03
++      4.029894e-05 1.962729e-03
++      1.724775e-07 4.905318e-06 1.962729e-03
++      3.423487e-08 1.724775e-07 4.029894e-05 1.958637e-03
++ Gd = 1.111432e-12
++      -2.253646e-14 1.111435e-12
++      0.000000e+00 -1.031471e-15 1.111435e-12
++      0.000000e+00 0.000000e+00 -2.253646e-14 1.111432e-12
+
+
+
+
+
 
 
 *************************************************************************
