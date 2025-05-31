@@ -18,12 +18,13 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 1.8g            * CTLE zero frequency, Hz
+ *.PARAM az1     = 1.8g            * CTLE zero frequency, Hz
+ .PARAM az1     = 5.35g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
 * Driver Pre-emphais *
- .PARAM pre1	= 0.15		* Driver pre-cursor pre-emphasis
+ .PARAM pre1	= 0.00		* Driver pre-cursor pre-emphasis
  .PARAM post1	= 0.00		* Driver 1st post-cursor pre-emphasis
  .PARAM post2	= 0.00		* Driver 2nd post-cursor pre-emphasis
 
@@ -279,19 +280,18 @@ Xk2  0  jp9   jn9   jp8  jn8  (conn)		    * Ortho connector stack
 * L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
 
 .MODEL diff_stripline W MODELTYPE=RLGC, N=2
-+ Lo = 3.610912e-07
-+      2.258532e-08 3.610912e-07
-+ Co = 1.180784e-10
-+      -7.468374e-12 1.180784e-10
++ Lo = 3.403239e-07
++      3.019600e-08 3.403239e-07
++ Co = 1.206951e-10
++      -1.069483e-11 1.206951e-10
 + Ro = 1.121241e+01
 +      0.000000e+00 1.121241e+01
 + Go = 0.000000e+00
 +      -0.000000e+00 0.000000e+00
-+ Rs = 2.355868e-03
-+      1.145451e-04 2.355868e-03
-+ Gd = 4.451450e-12
-+      -2.815511e-13 4.451450e-12
-
++ Rs = 2.402079e-03
++      1.402890e-04 2.402079e-03
++ Gd = 3.033398e-12
++      -2.687903e-13 3.033398e-12
 
 *************************************************************************
 *************************************************************************

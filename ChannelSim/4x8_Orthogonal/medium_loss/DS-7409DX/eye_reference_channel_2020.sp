@@ -18,7 +18,8 @@
 
 * CTLE Settings *
 ***set for 10.7Gbps***
- .PARAM az1     = 1.91g            * CTLE zero frequency, Hz
+* .PARAM az1     = 1.91g            * CTLE zero frequency, Hz
+ .PARAM az1     = 5.35g            * CTLE zero frequency, Hz
  .PARAM ap1     = 5.35g           * CTLE primary pole frequency, Hz
  .PARAM ap2     = 10g           * CTLE secondary pole frequency, Hz
 
@@ -36,7 +37,7 @@
 				* Positive moves the eye left.
 
 * Single Pulse Signal Source *
-* Vs  inp 0    PULSE (1 0 0 trise tfall '(1/bps)-trise' simtime)
+*Vs  inp 0    PULSE (1 0 0 trise tfall '(1/bps)-trise' simtime)
 
 * PRBS7 Signal Source *
 Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
@@ -56,9 +57,9 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * PCB Line Lengths *
 ***set for orthogonal midplane***
- .PARAM len1	= 5.65		* Line segment 1 length, inches
+ .PARAM len1	= .65		* Line segment 1 length, inches
  .PARAM len2	= 2.98	* Line segment 2 length, inches
- .PARAM len3	= 5.66		* Line segment 3 length, inches
+ .PARAM len3	= 1.17		* Line segment 3 length, inches
  .PARAM len4	= 1		* Line segment 4 length, inches
 
 * Package Parameters *
