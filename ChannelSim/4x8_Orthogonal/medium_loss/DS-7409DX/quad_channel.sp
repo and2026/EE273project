@@ -59,10 +59,10 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * PCB Line Lengths *
 ***set for orthogonal midplane***
- .PARAM len1	= 9		* Line segment 1 length, inches
- .PARAM len2	= 0.25	* Line segment 2 length, inches
- .PARAM len3	= 4		* Line segment 3 length, inches
- .PARAM len4	= 1		* Line segment 4 length, inches
+ .PARAM len1	= 5.69	**min 0.65, max 5.69*** Line segment 1 length, inches
+ .PARAM len2	= 2.98 	**min 2.98, max 2.98*** Line segment 2 length, inches
+ .PARAM len3	= 5.66 	**min 1.17, max 5.66*** Line segment 3 length, inches
+ .PARAM len4	= 1	**min 1, max 1**      * Line segment 4 length, inches
 
 * Package Parameters *
  .PARAM GENpkgZ = 47.5		* Typ GEN package trace impedance, ohms
@@ -106,15 +106,24 @@ Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
  Xd  in  ppad npad  (tx_4tap_diff) ppo=vd bps=bps a0=pre1 a2=post1 a3=post2
 
 * Daughter Card 1 Interconnect *
- Xpp1    ppad  jp1   (gen_pkg)				* Driver package model
- Xpn1    npad  jn1   (gen_pkg)				* Driver package model
+ Xpp1    ppad  tp1   (gen_pkg)				* Driver package model
+ Xpn1    npad  tn1   (gen_pkg)				* Driver package model
 
- Rqp    0   rq   0    					*Termination resistor to gnd (set at 0 for now)
- Rqn    0   rn   0 					*Termination Resistor
- Xp3p1   rqp q3p1 (gen_pkg) 	   			*through driver
- Xp4n1   rqn q4n1 (gen_pkg)				*through driver
- 
+*Source side terminations
+Rtp1 tp1 jp1 11.9					* RT1
+Rtn1 tn1 jn1 11.9					* RT1
+Rtpn1 jp1 jn1 671.69					* RT2
 
+*Victum through driver package model
+ Xp3p1  0  t3p1 (gen_pkg) 	   			*through driver
+ Xp4n1  0  t4n1 (gen_pkg)				*through driver
+
+*Source side terminations for vicutm lines
+ Rt3p1    t3p1 q3p1   11.9    				*RT1 
+ Rt4n1    t4n1 q4n1   11.9				*RT1
+ Rt34pn1  q3p1 q4n1   671.69				*RT2
+
+*In the board
  Xvn1    jn1   jn2   (via)				* Package via
  Xvp1    jp1   jp2   (via)				* Package via
  Xv3p1   q3p1 q3p2 (via)				* Package via
@@ -163,19 +172,17 @@ Xk2  0  jp9   jn9 q3p9 q4n9  jp8  jn8 q3p8 q4n8  (conn)		    * Ortho connector s
 
  Xvp7    jp13  jp14  (via)				* Package via
  Xvn7    jn13  jn14  (via)				* Package via
- Xpp2    jp14  jrp   (gen_pkg)				* Recvr package model
- Xpn2    jn14  jrn   (gen_pkg)				* Recvr package model
-
-
  Xv3p7    q3p13  q3p14  (via)				* Package via
  Xv4n7    q4n13  q4n14  (via)				* Package via
- Xp3p2    q3p14  q3rp   (gen_pkg)				* Recvr package model
- Xp4n2    q4n14  q4rn   (gen_pkg)				* Recvr package model
+ 
 
-*Terminate other diff pair line
-R3pterm q3rp 0 rterm
-R4nterm q4rn 0 rterm
+*Terminate agressor lines
+Rtp2 jp14 tp2 35.04					* RT1
+Rtn2 jn14 tn2 35.04					* RT1
+Rtpn2 jp14 jn14 671.69					* RT2
 
+ Xpp2   tp2  jrp   (gen_pkg)				* Recvr package model
+ Xpn2   tn2  jrn   (gen_pkg)				* Recvr package model
 
 * Behavioral Receiver *
  Rrp1  jrp 0  rterm
@@ -183,6 +190,20 @@ R4nterm q4rn 0 rterm
  Crp1  jrp 0  cload
  Crn1  jrn 0  cload
  Xctle jrp jrn outp outn  (rx_eq_diff) az1=az1 ap1=ap1 ap2=ap2
+
+
+*Terminate victum diff pair line
+Rt3p2 q3p14 q3rp 35.04					* RT1
+Rt4n2 q4n14 q4rn 35.04					* RT1
+Rt34pn2 q3p14 q4n14 671.69				* RT2
+
+ Xp3p2   q3rp out3p  (gen_pkg)				* Recvr package model
+ Xp4n2   q4rn out4n  (gen_pkg)				* Recvr package model
+ Rr3p1	 out3p 0 rterm					* Behavioral Reciver terms
+ Rr4n1   out4n 0 rterm					* Behavioral Reciver terms
+ Cr3p1   out3p 0 cload					* Behavioral Reciver terms
+ Cr4n1   out4n 0 cload					* Behavioral Reciver terms
+
 
 * Differential Receive Voltage *
  Ex  rx_diff 0  (outp,outn) 1
@@ -243,7 +264,6 @@ R4nterm q4rn 0 rterm
 * Connector *
  S1  1   2   3   4   5   6   7   8   9   10   11   12
 +    13   14   15   16  inp  outp  inn  outn  in3p   out3p   in4n   out4n   MNAME=s_model
- *S1  inp outp inn outn   5   6   7   8   9   10   11   12   13   14   15   16
 
 * Daughter Card Side Terminations *
  R2    2 0  50
@@ -280,54 +300,19 @@ R4nterm q4rn 0 rterm
 *************************************************************************
 *************************************************************************
 
-
- *.SUBCKT (diff_stripline) inp inn  outp outn length=1 *inch
-   * W1 inp inn 0 outp outn 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
-   * W3 21 23 0 22 24 0 RLGCMODEL=diff_stripline N=2 l='length*0.0254' delayopt=3
- *.ENDS (diff_stripline)
-
  .SUBCKT (quad_stripline) inp inn in3p in4n outp outn out3p out4n length=1 *inch
     W1 inp inn in3p in4n 0 outp outn out3p out4n 0 RLGCMODEL=quad_stripline N=4 l='length*0.0254' delayopt=3
  .ENDS (quad_stripline)
 
-*SYSTEM_NAME : diff_stripline
+
+*SYSTEM_NAME : quad_stripline
 *
-*  ------------------------------------ Z = 3.581400e-04
+*  ------------------------------------ Z = 2.946400e-04
 *  //// Top Ground Plane //////////////
-*  ------------------------------------ Z = 3.429000e-04
-*       diel_2   H = 1.778000e-04
-*  ------------------------------------ Z = 1.651000e-04
-*       diel_1   H = 1.498600e-04
-*  ------------------------------------ Z = 1.524000e-05
-*  //// Bottom Ground Plane ///////////
-*  ------------------------------------ Z = 0
-
-* L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
-
-*.MODEL diff_stripline W MODELTYPE=RLGC, N=2
-*+ Lo = 3.102009e-07
-*+      1.094587e-08 3.102009e-07
-*+ Co = 1.261211e-10
-*+      -4.387472e-12 1.261211e-10
-*+ Ro = 1.121241e+01
-*+      0.000000e+00 1.121241e+01
-*+ Go = 0.000000e+00
-*+      -0.000000e+00 0.000000e+00
-*+ Rs = 2.448602e-03
-*+      9.122823e-05 2.448602e-03
-*+ Gd = 3.169768e-12
-*+      -1.102692e-13 3.169768e-12
-
-
-
-*SYSTEM_NAME : quad_striplines
-*
-*  ------------------------------------ Z = 2.641600e-04
-*  //// Top Ground Plane //////////////
-*  ------------------------------------ Z = 2.489200e-04
+*  ------------------------------------ Z = 2.794000e-04
 *       diel_2   H = 1.346200e-04
-*  ------------------------------------ Z = 1.143000e-04
-*       diel_1   H = 9.906000e-05
+*  ------------------------------------ Z = 1.447800e-04
+*       diel_1   H = 1.295400e-04
 *  ------------------------------------ Z = 1.524000e-05
 *  //// Bottom Ground Plane ///////////
 *  ------------------------------------ Z = 0
@@ -335,35 +320,30 @@ R4nterm q4rn 0 rterm
 * L(H/m), C(F/m), Ro(Ohm/m), Go(S/m), Rs(Ohm/(m*sqrt(Hz)), Gd(S/(m*Hz))
 
 .MODEL quad_stripline W MODELTYPE=RLGC, N=4
-+ Lo = 2.595832e-07
-+      5.320991e-09 2.595828e-07
-+      5.138418e-12 2.458898e-10 2.595828e-07
-+      1.073550e-13 5.138418e-12 5.320991e-09 2.595832e-07
-+ Co = 1.179266e-10
-+      -2.391193e-12 1.179269e-10
-+      0.000000e+00 -1.094425e-13 1.179269e-10
-+      0.000000e+00 0.000000e+00 -2.391193e-12 1.179266e-10
-+ Ro = 7.868356e+00
-+      0.000000e+00 7.868356e+00
-+      0.000000e+00 0.000000e+00 7.868356e+00
-+      0.000000e+00 0.000000e+00 0.000000e+00 7.868356e+00
++ Lo = 3.463677e-07
++      2.815393e-08 3.463655e-07
++      4.803697e-12 5.481383e-11 3.463655e-07
++      4.210070e-13 4.803697e-12 2.815393e-08 3.463677e-07
++ Co = 1.155333e-10
++      -9.382295e-12 1.155340e-10
++      -8.228329e-17 -1.811066e-14 1.155340e-10
++      0.000000e+00 -8.228291e-17 -9.382295e-12 1.155333e-10
++ Ro = 1.212152e+01
++      0.000000e+00 1.212152e+01
++      0.000000e+00 0.000000e+00 1.212152e+01
++      0.000000e+00 0.000000e+00 0.000000e+00 1.212152e+01
 + Go = 0.000000e+00
 +      -0.000000e+00 0.000000e+00
-+      0.000000e+00 -0.000000e+00 0.000000e+00
-+      0.000000e+00 0.000000e+00 -0.000000e+00 0.000000e+00
-+ Rs = 1.958637e-03
-+      4.029894e-05 1.962729e-03
-+      1.724775e-07 4.905318e-06 1.962729e-03
-+      3.423487e-08 1.724775e-07 4.029894e-05 1.958637e-03
-+ Gd = 1.111432e-12
-+      -2.253646e-14 1.111435e-12
-+      0.000000e+00 -1.031471e-15 1.111435e-12
-+      0.000000e+00 0.000000e+00 -2.253646e-14 1.111432e-12
-
-
-
-
-
++      -0.000000e+00 -0.000000e+00 0.000000e+00
++      0.000000e+00 -0.000000e+00 -0.000000e+00 0.000000e+00
++ Rs = 2.472018e-03
++      1.169830e-04 2.473020e-03
++      1.968991e-07 1.598659e-06 2.473020e-03
++      4.872919e-08 1.968991e-07 1.169830e-04 2.472018e-03
++ Gd = 2.903669e-12
++      -2.358028e-13 2.903687e-12
++      -2.068005e-18 -4.551706e-16 2.903687e-12
++      0.000000e+00 -2.067995e-18 -2.358028e-13 2.903669e-12
 
 
 *************************************************************************
