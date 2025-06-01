@@ -110,9 +110,9 @@ Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
  Xpn1    npad  tn1   (gen_pkg)				* Driver package model
 
 *Source side terminations
-Rtp1 tp1 jp1 11.9					* RT1
-Rtn1 tn1 jn1 11.9					* RT1
-Rtpn1 jp1 jn1 671.69					* RT2
+Rtp1 tp1 jp1 13.45					* RT1
+Rtn1 tn1 jn1 13.45					* RT1
+Rtpn1 jp1 jn1 586.4					* RT2
 
 *Victum through driver package model
  *Xp3p1  0  t3p1 (gen_pkg) 	   			*through driver
@@ -182,9 +182,9 @@ Xk2  0  jp9   jn9 q3p9 q4n9  jp8  jn8 q3p8 q4n8  (conn)		    * Ortho connector s
  
 
 *Terminate agressor lines
-Rtp2 jp14 tp2 35.04					* RT1
-Rtn2 jn14 tn2 35.04					* RT1
-Rtpn2 jp14 jn14 671.69					* RT2
+Rtp2 jp14 tp2 36.6					* RT1
+Rtn2 jn14 tn2 36.6					* RT1
+Rtpn2 jp14 jn14 568.4					* RT2
 
  Xpp2   tp2  jrp   (gen_pkg)				* Recvr package model
  Xpn2   tn2  jrn   (gen_pkg)				* Recvr package model
