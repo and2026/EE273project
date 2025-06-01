@@ -40,10 +40,10 @@
 				* Positive moves the eye left.
 
 * Single Pulse Signal Source *
-*Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
+Vs  inp 0    PULSE (1.250 0 0 trise tfall '(1/bps)-trise' simtime)
 
 * PRBS7 Signal Source *
-Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
+*Xs  inp inn  (bitpattern) dc0=0 dc1=1 baud='1/bps' latency=0 tr=trise
 
 * AC Signal Source *
 *Vs  in 0   AC 1
@@ -115,8 +115,12 @@ Rtn1 tn1 jn1 11.9					* RT1
 Rtpn1 jp1 jn1 671.69					* RT2
 
 *Victum through driver package model
- Xp3p1  0  t3p1 (gen_pkg) 	   			*through driver
- Xp4n1  0  t4n1 (gen_pkg)				*through driver
+ *Xp3p1  0  t3p1 (gen_pkg) 	   			*through driver
+ *Xp4n1  0  t4n1 (gen_pkg)				*through driver
+Rp3p1 t3p1 0 GENpkgZ
+RP4n1 t4n1 0 GENpkgZ
+
+
 
 *Source side terminations for vicutm lines
  Rt3p1    t3p1 q3p1   11.9    				*RT1 
@@ -128,12 +132,13 @@ Rtpn1 jp1 jn1 671.69					* RT2
  Xvp1    jp1   jp2   (via)				* Package via
  Xv3p1   q3p1 q3p2 (via)				* Package via
  Xc4n1   q4n1 q4n2 (via)				* Package via
-Xl1    jp2   jn2 q3p2 q4n2   jp3  jn3  q3p3 q4n3 (quad_stripline)	length=len1  * Line seg 1
+Xl1    jp2 jn2 q3p2 q4n2 jp3 jn3 q3p3 q4n3 (quad_stripline)	length=len1  * Line seg 1
  
  Xvp2    jp3   jp4   (via)				* Daughter card via
  Xvn2    jn3   jn4   (via)				* Daughter card via
  Xv3p2   q3p3  q3p4  (via) 				* Daughter card via
  Xv4n2   q4n3  q4n4  (via)				* Daughter card via
+
 
 *************************************************************************
 *************************************************************************
@@ -165,8 +170,8 @@ Xk2  0  jp9   jn9 q3p9 q4n9  jp8  jn8 q3p8 q4n8  (conn)		    * Ortho connector s
  Xl3     jp10  jn10 q3p10 q4n10  jp11 jn11 q3p11 q4n11 (quad_stripline)	length=len3  * Line seg 3
  Xvp6    jp11  jp12  (via) 		Cvia=1.4p	* DC blocking cap vias
  Xvn6    jn11  jn12  (via) 		Cvia=1.4p	* DC blocking cap vias
- Xv3p6    jp11  jp12  (via) 		Cvia=1.4p	* DC blocking cap vias
- Xv4n6    jn11  jn12  (via) 		Cvia=1.4p	* DC blocking cap vias
+ Xv3p6   q3p11 q3p12  (via) 		Cvia=1.4p	* DC blocking cap vias
+ Xv4n6   q4n11 q4n12  (via) 		Cvia=1.4p	* DC blocking cap vias
  Xl4     jp12  jn12 q3p12 q4n12 jp13 jn13 q3p13 q4n13 (quad_stripline)	length=len4  * Line seg 4
 
 
