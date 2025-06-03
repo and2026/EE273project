@@ -1,0 +1,69 @@
+****** HSPICE -- K-2015.06-3 linux64 (Aug  5 2015) ******
+ Input File: eye_reference_channel_2020_long.sp
+ lic:
+ lic: FLEXlm: v11.2.1
+ lic: USER:   aemorgan             HOSTNAME: iron-01
+ lic: HOSTID: "eec706e3e073"       PID:      1866383
+ lic: Using FLEXlm license file:
+ lic: 27000@cadlic0.stanford.edu
+ lic: Checkout 1 hspice
+ lic: License/Maintenance for hspice will expire on 06-nov-2026/2024.09
+ lic: 1(in_use)/200(total) FLOATING license(s) on SERVER 27000@cadlic0.stanford.edu
+ lic:
+ init: begin read circuit files,  cpu clock=  1.50E-01
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/ad
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/ad
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/be
+                         have
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/bj
+                         t
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/bu
+                         rr_brn
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/co
+                         mlinear
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/di
+                         o
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/fe
+                         t
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/li
+                         n_tech
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/pc
+                         i
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/si
+                         gnet
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/ti
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/tl
+                         ine
+       option search = /cad/synopsys/hspice/K-2015.06-3/hspice/parts/xi
+                         linx
+       option runlvl
+       option post
+       option accurate
+ init: end read circuit files,  cpu clock=  1.60E-01 peak memory=       186 mb
+ init: begin check errors,  cpu clock=  1.60E-01
+ init: end check errors,  cpu clock=  7.10E-01 peak memory=       230 mb
+ init: begin setup matrix, pivot=     0 cpu clock=  7.10E-01
+       establish matrix -- done,  cpu clock=  7.10E-01 peak memory=       230 mb
+       re-order matrix -- done,  cpu clock=  7.20E-01 peak memory=       230 mb
+ init: end setup matrix,  cpu clock=  7.20E-01 peak memory=       230 mb
+ dcop: begin dcop,  cpu clock=  7.20E-01
+ dcop: end dcop,  cpu clock=  7.20E-01 peak memory=       230 mb  tot_iter=       4
+ data: data=plens           az1             =    1.00E+03
+ dcop: begin dcop,  cpu clock=  1.07E+00
+ dcop: end dcop,  cpu clock=  1.07E+00 peak memory=       230 mb  tot_iter=       7
+ output: eye_reference_channel_2020_long.ac0
+ sweep: ac ac1    begin, #sweeps=5178 cpu clock=  1.07E+00
+ ac: frequency=    1.00E+05
+ ac: frequency=    3.29E+05
+ ac: frequency=    1.08E+06
+ ac: frequency=    3.57E+06
+ ac: frequency=    1.18E+07
+ ac: frequency=    3.87E+07
+ ac: frequency=    1.28E+08
+ ac: frequency=    4.21E+08
+ ac: frequency=    1.39E+09
+ ac: frequency=    4.57E+09
+ ac: frequency=    1.50E+10
+ sweep: ac ac1    end,  cpu clock=  2.24E+00 peak memory=       230 mb
+>info:         ***** hspice job concluded
+ lic: Release hspice token(s)

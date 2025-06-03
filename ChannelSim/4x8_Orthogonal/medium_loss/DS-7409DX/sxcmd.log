@@ -1,0 +1,58 @@
+### Custom WaveView ADV log file, revision V-2023.12-4 (build Feb 07, ) ###
+### created at 00:31:07 on Mon Jun  2 2025 (Linux AMD64) ###
+### Host Name: iron-01   User ID:    PID: 1874370   ###
+wv_start_log
+# (0) running in waveview only mode
+# (0) HOME defined
+wv_select_window {Custom WaveView} 
+wv_move_window {Custom WaveView} {} 0 27
+wv_move_window {Custom WaveView} {} -5 27
+wv_press_tool_button {Custom WaveView} {} {OpenWaveform0} 
+wv_select_dialog {FileDialog} 
+wv_select_combox_item {FileDialog} {} {Path} "medium_loss/" 9
+wv_select_list_item {FileDialog} {} {FileList} {meg4} 3
+wv_dclick_list_item {FileDialog} {} {FileList} {meg4} 3
+wv_select_list_item {FileDialog} {} {FileList} {eye_reference_channel_2020_short.ac0} 15
+wv_press_button {FileDialog} {} {Ok} 
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020_short.ac0(0)} {0} {+sep=@}
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020_short.ac0(0)} {+sep=@}
+wv_select_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020_short.ac0(0)@toplevel(0)} {0} {+sep=@}
+wv_expand_tree_item {Custom WaveView} {} {hierview} {D0:eye_reference_channel_2020_short.ac0(0)@toplevel(0)} {+sep=@}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {70}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {140}
+wv_move_scrollbar {Custom WaveView} {} {sigview.HScrolBar} {199}
+wv_select_list_item {Custom WaveView} {} {sigview} {v(s11)} 30
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(s11)} 30
+wv_select_waveview 1 {waveview 1}
+wv_select_toolbar_item {Custom WaveView} {waveview 1:1} {Vertical Cursor} 
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 2.27386e+09 2.27801
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 930 87
+wv_select_waveview 1 {waveview 1}
+wv_waveview_context_menu WV1.PANEL1:1.CURSORPBOX1
+wv_select_waveview 1 {waveview 1}
+wv_select_menu_item {Custom WaveView} {waveview 1:1} {HairPBoxPopMenu.Set X Value} 
+wv_set_text {CursorSnapXYValue} {} {CsrXYValue} "5.37e+09"
+wv_press_button {CursorSnapXYValue} {} {Ok} 
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL1:1.LEGEND
+wv_select_panel WV1.PANEL1:1.LEGEND
+wv_select_waveview 1 {waveview 1}
+wv_waveview_context_menu WV1.PANEL1:1.LEGEND
+wv_select_waveview 1 {waveview 1}
+wv_select_menu_item {Custom WaveView} {waveview 1:1} {PanelPopMenu.Delete} 
+wv_press_button {Confirmation} {} {Ok} 
+wv_select_list_item {Custom WaveView} {} {sigview} {v(s21)} 31
+wv_dclick_list_item {Custom WaveView} {} {sigview} {v(s21)} 31
+wv_select_waveview 1 {waveview 1}
+wv_select_panel WV1.PANEL1:1 6.35172e+09 0.864167
+wv_select_waveview 1 {waveview 1}
+wv_select_toolbar_item {Custom WaveView} {waveview 1:1} {Vertical Cursor} 
+wv_select_waveview 1 {waveview 1}
+wv_select_wv_item WV1.PANEL1:1.XAXIS1
+wv_move_wv_item WV1.PANEL1:1.CURSOR1 1010 369
+wv_dclick_wv_item WV1.PANEL1:1.CURSORPBOX1
+wv_select_dialog {CursorSnapXYValue} 
+wv_move_window {CursorSnapXYValue} {} 520 235
+wv_set_text {CursorSnapXYValue} {} {CsrXYValue} "5.37e+09"
+wv_press_button {CursorSnapXYValue} {} {Ok} 
